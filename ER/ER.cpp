@@ -27,6 +27,7 @@ int main()
 
     if (!CreateProcessA("eldenring.exe", NULL, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi))
     {
+        LOG(FATAL) << "Spawning eldenring.exe failed, aborting.\n";
         return -1;
     }
     for (const auto& entry : fs::directory_iterator("mods")) {
